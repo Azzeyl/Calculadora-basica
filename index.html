@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA EVENTO</title>
+
+    <!--logica de la calculadora-->
+
+    <script type="text/javascript">
+    
+        var num, acc = 0, op = ""; /*NUM ES EL NUMERO QUE ESCRIBIMOS EN LA CAJA*/
+                                  /*ACC ES DONDE GUARDAMOS EL NUMERO QUE TECLAMOS EN LA CAJA*/
+                                  /*OP GUARDA LA OPERACION DEPENDIENDO SI ES MAS O MENOS*/
+
+        function mas() { acc = num.value;  op = "+"; } /*EN ACC GUARDAMOS EN NUM.VALUE QUE ES EL NUMERO QUE PUSIMOS EN LA CAJA
+                                                            OPP GUARDA LA OPERACION CON EL +*/
+        function menos() {acc = num.value; op = "-"; } /*EN ACC GUARDAMOS EN NUM.VALUE QUE ES EL NUMERO QUE PUSIMOS EN LA CAJA
+                                                            OPP GUARDA LA OPERACION CON EL -*/
+
+        function calcular() {
+            if (op === "+") {num.value = (+acc + +num.value)} /*OP ES DE SUMA, NUM.VALUE ES PARA QUE APARESCA EN LA CAJA, LUEGO LO GUARDADO ACC QUE
+            FUE EL PRIMER NUMERO CLICLEADO SE SUMA CON EL SEGUNDO NUMERO QUE FUE ESCRITO EN LA CAJA*/
+            if (op === "-") {num.value = (+acc - +num.value)}
+        }
+
+        function inic ()  {num = document.getElementById("num");} /*ESTO VA CON EL ONLOAD INIC*/
+        function vaciar () {num.value = "";}
+    </script>
+</head>
+<body onload="inic()">  <!--onLoad hace que el navegador se recarge automaticamente-->
+    Numero:<p> <!--UN TITULO-->               <!--onclick hace que se vasee la caja al darle un click-->
+        <input type="text" size="12" id="num" onclick="vaciar()"> </p> <!--Caja de texto-->
+
+        <!--Son botones con eventos -->
+
+        <button onclick="mas()">+</button> <!--mas invoca a la funcion mas-->
+        <button onclick="menos()">-</button> <!--menos invoca a la funcion menos-->
+        <button onclick="calcular()">=</button> <!--calcular invoca a la funcion calcular-->
+    
+</body>
+</html>
